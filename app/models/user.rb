@@ -13,4 +13,5 @@ class User < ApplicationRecord
   def password_salt=(new_salt)
   end
 
+
 end

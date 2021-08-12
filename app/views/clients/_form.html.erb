@@ -16,10 +16,6 @@
     <%= form.text_field :client_name %>
   </div>
 
-  <div class="field">
-    <%= form.hidden_field :user_id, value: current_user %>
-  </div>
-
   <%= form.fields_for @client.shipping_addresses.build do |s| %>
     
     <div class="field">
