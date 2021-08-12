@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  
   before_action :set_client, only: %i[ show edit update destroy ]
 
   # GET /clients or /clients.json
@@ -23,6 +24,7 @@ class ClientsController < ApplicationController
   # POST /clients or /clients.json
   def create
     @client = Client.new(client_params)
+    @client.shipping_addresses.build(client_params[:shipping_addresses_attributes])
 
     respond_to do |format|
       if @client.save
@@ -67,4 +69,5 @@ class ClientsController < ApplicationController
     def client_params
       params.require(:client).permit(:client_name, shipping_addresses_attributes: [:id, :address_line1, :address_line2, :city, :state, :country])
     end
+
 end
