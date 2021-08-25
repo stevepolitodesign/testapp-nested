@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     @client.shipping_addresses.build(client_params[:shipping_addresses_attributes])
+    @client.save
 
     respond_to do |format|
       if @client.save
@@ -67,7 +68,7 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:client_name, shipping_addresses_attributes: [:id, :address_line1, :address_line2, :city, :state, :country])
+      params.require(:client).permit(:client_name, shipping_addresses_attributes: [:address_line1, :address_line2, :city, :state, :country])
     end
 
 end
