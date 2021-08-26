@@ -16,7 +16,7 @@
     <%= form.text_field :client_name %>
   </div>
 
-  <%= form.fields_for @client.shipping_addresses.build do |s| %>
+  <%= form.fields_for :shipping_addresses do |s| %>
     
     <div class="field">
       <%= s.label :address_line1, 'Address Line 1' %>
