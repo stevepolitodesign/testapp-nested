@@ -8,20 +8,24 @@ class ClientsController < ApplicationController
   end
 
   # GET /clients/1 or /clients/1.json
+
   def show
   end
 
   # GET /clients/new
+
   def new
     @client = Client.new
     @client.shipping_addresses.build
   end
 
   # GET /clients/1/edit
+
   def edit
   end
 
   # POST /clients or /clients.json
+
   def create
     @client = Client.new(client_params)
     @client.shipping_addresses.build(client_params[:shipping_addresses_attributes])
@@ -61,14 +65,17 @@ class ClientsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
+
     def set_client
       @client = Client.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
+
     def client_params
-      params.require(:client).permit(:client_name, shipping_addresses_attributes: [:address_line1, :address_line2, :city, :state, :country])
+      params.require(:client).permit(:client_name, shipping_addresses_attributes: [:id, :address_line1, :address_line2, :city, :state, :country])
     end
 
 end

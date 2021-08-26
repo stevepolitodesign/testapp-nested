@@ -1,4 +1,5 @@
 class ShippingAddressesController < ApplicationController
+  
   before_action :set_shipping_address, only: %i[ show edit update destroy ]
 
   # GET /shipping_addresses or /shipping_addresses.json
